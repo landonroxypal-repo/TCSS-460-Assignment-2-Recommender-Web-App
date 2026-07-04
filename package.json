@@ -4,10 +4,11 @@
   "description": "Starter files for Assignment 2 recommender web app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js -e js,ejs,json"
   },
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.14"
   }
 }

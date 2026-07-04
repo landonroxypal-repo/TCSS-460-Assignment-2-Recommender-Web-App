@@ -1,0 +1,1 @@
+Optional: place local images here if your Assignment 2 design uses images. Document image sources in README.txt.

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body class="bg-slate-100 text-slate-900 min-h-screen">
+  <%- include("partials/nav") %>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <section class="bg-white rounded-xl shadow border border-slate-200 p-8">
+      <h1 class="text-3xl font-bold mb-3">Recommender Tool</h1>
+
+      <p class="text-slate-700 mb-6">
+        TODO: Replace the sample JSON data with your own topic, criteria, and alternatives.
+        The form below is generated from the criteria in <code>data/decision-data.json</code>.
+      </p>
+
+      <form action="/tool/results" method="POST" class="space-y-6">
+        <section class="grid gap-4 md:grid-cols-2">
+          <% data.criteria.forEach(function(criterion) { %>
+            <div class="border border-slate-200 rounded-lg p-4">
+              <label for="<%= criterion.id %>" class="block font-semibold mb-1">
+                <%= criterion.name %>
+              </label>
+
+              <p class="text-sm text-slate-600 mb-2">
+                <%= criterion.description %>
+              </p>
+
+              <input
+                type="number"
+                id="<%= criterion.id %>"
+                name="<%= criterion.id %>"
+                min="0"
+                max="10"
+                value="1"
+                class="w-full border border-slate-300 rounded-lg px-3 py-2">
+            </div>
+          <% }); %>
+        </section>
+
+        <section>
+          <h2 class="font-bold mb-2">Ranking Method</h2>
+
+          <label class="block mb-2">
+            <input type="radio" name="method" value="weighted-sum" checked>
+            Weighted Sum
+          </label>
+
+          <label class="block">
+            <input type="radio" name="method" value="weighted-product">
+            Weighted Product
+          </label>
+        </section>
+
+        <div class="flex gap-3">
+          <button type="submit" class="bg-blue-700 text-white font-semibold px-5 py-3 rounded-lg hover:bg-blue-800">
+            Rank Alternatives
+          </button>
+
+          <button type="reset" class="border border-slate-300 font-semibold px-5 py-3 rounded-lg hover:bg-slate-100">
+            Reset
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+</body>
+</html>

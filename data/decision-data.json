@@ -1,0 +1,37 @@
+{
+  "appName": "Sample Recommender App",
+  "topic": "Replace this with your recommender topic",
+  "description": "This is starter data only. Replace it with your own criteria and alternatives.",
+  "criteria": [
+    {
+      "id": "criterionOne",
+      "name": "Criterion One",
+      "description": "Replace with a real criterion. Higher scores should mean better performance."
+    },
+    {
+      "id": "criterionTwo",
+      "name": "Criterion Two",
+      "description": "Replace with another real criterion. Higher scores should mean better performance."
+    }
+  ],
+  "alternatives": [
+    {
+      "id": 1,
+      "name": "Alternative One",
+      "description": "Replace with a real alternative.",
+      "scores": {
+        "criterionOne": 8,
+        "criterionTwo": 6
+      }
+    },
+    {
+      "id": 2,
+      "name": "Alternative Two",
+      "description": "Replace with another real alternative.",
+      "scores": {
+        "criterionOne": 5,
+        "criterionTwo": 9
+      }
+    }
+  ]
+}

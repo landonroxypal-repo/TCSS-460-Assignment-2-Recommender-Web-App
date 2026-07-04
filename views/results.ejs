@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body class="bg-slate-100 text-slate-900 min-h-screen">
+  <%- include("partials/nav") %>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <section class="bg-white rounded-xl shadow border border-slate-200 p-8">
+      <h1 class="text-3xl font-bold mb-4">Results</h1>
+
+      <p class="text-slate-700 mb-4">
+        Selected method: <strong><%= selectedMethod || "No method selected" %></strong>
+      </p>
+
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+        <p class="text-yellow-900">
+          <%= message %>
+        </p>
+      </div>
+
+      <!-- TODO:
+        After implementing backend logic, display:
+        1. top recommended alternative
+        2. ranked list of all alternatives
+        3. final score for each alternative
+        4. normalized weights used
+        5. short explanation of the result
+      -->
+
+      <h2 class="text-xl font-bold mb-3">Submitted Form Data</h2>
+
+      <pre class="bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto"><%= JSON.stringify(formData, null, 2) %></pre>
+
+      <a href="/tool" class="inline-block mt-6 text-blue-700 font-semibold hover:underline">
+        ← Back to Tool
+      </a>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+</body>
+</html>

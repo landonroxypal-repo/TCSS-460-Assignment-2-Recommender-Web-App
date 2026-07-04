@@ -1,0 +1,13 @@
+{
+  "name": "assignment2-start",
+  "version": "1.0.0",
+  "description": "Starter files for Assignment 2 recommender web app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}

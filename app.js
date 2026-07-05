@@ -1,8 +1,21 @@
+/**
+ * TCSS 460
+ * 7/5/2026
+ * Assignment 2
+ *
+ * app.js, the entrypoint and route handling for the web app.
+ *
+ * @author Eyhab Al-Masri
+ * @author Landon Wardle
+ *
+ * @version 1.0
+ */
+
 const express = require("express");
 const path = require("path");
 
 // Starter data file.
-// TODO: Replace the sample data in data/decision-data.json with your own topic,
+
 // at least 5 criteria, and at least 5 alternatives.
 const decisionData = require("./data/decision-data.json");
 

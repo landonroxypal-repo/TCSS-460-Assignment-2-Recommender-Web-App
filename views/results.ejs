@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+<% const SCORE_PRECISION = 3; %>
 <%- include("partials/header") %>
 
 <body class="bg-slate-100 text-slate-900 min-h-screen">
   <%- include("partials/nav") %>
 
   <main class="max-w-5xl mx-auto px-6 py-10">
+    <section class="bg-white rounded-xl shadow border border-slate-200 p-8 mb-4">
+        <p class="mb-4">
+            Top Recommendation
+        </p>
+        <h1 class="text-3xl font-bold mb-4">
+            <%= rankedResults[0].name %>
+        </h1>
+        <p class="mb-4">
+            <%= rankedResults[0].description %>
+        </p>
+        <p class="mb-4">
+            Score using <strong><%= selectedMethod %></strong>: <%= rankedResults[0].score.toPrecision(SCORE_PRECISION) %>
+        </p>
+    </section>
+    <section class="bg-white rounded-xl shadow border border-slate-200 p-8 my-4">
+     <h1 class="text-3xl font-bold mb-4">
+         Your Weights
+     </h1>
+      <div class="grid gap-4 md:grid-cols-2">
+        <% data.criteria.forEach(function(criterion) { %>
+          <div class="border border-slate-200 rounded-lg p-4">
+            <label for="<%= criterion.id %>" class="block font-semibold mb-1">
+              <%= criterion.name %>: <strong><%= formData[criterion.id] %>/10</strong>
+            </label>
+
+            <p class="text-sm text-slate-600 mb-2">
+              <%= criterion.description %>
+            </p>
+          </div>
+        <% }); %>
+      </div>
+    </section>
     <section class="bg-white rounded-xl shadow border border-slate-200 p-8">
-      <h1 class="text-3xl font-bold mb-4">Results</h1>
+      <h1 class="text-3xl font-bold mb-4">Ranked Results</h1>
 
       <p class="text-slate-700 mb-4">
-        Selected method: <strong><%= selectedMethod || "No method selected" %></strong>
+        Each game is ranked based on its score; from highest to lowest.
       </p>
-
-      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-        <p class="text-yellow-900">
-          <%= message %>
-        </p>
-      </div>
 
       <!-- TODO:
         After implementing backend logic, display:
@@ -28,10 +55,31 @@
         5. short explanation of the result
       -->
 
-      <h2 class="text-xl font-bold mb-3">Submitted Form Data</h2>
+    <table class="border-separate border-spacing-2 border border-gray-400 dark:border-gray-500 table-auto">
+      <thead>
+        <tr>
+          <th class="border border-gray-300 dark:border-gray-600">Rank</th>
+          <th class="border border-gray-300 dark:border-gray-600">Choice</th>
+          <th class="border border-gray-300 dark:border-gray-600">Score</th>
 
-      <pre class="bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto"><%= JSON.stringify(formData, null, 2) %></pre>
-
+          <% data.criteria.forEach(function(criterion) { %>
+            <th class="border border-gray-300 dark:border-gray-600"><%= criterion.name %></th>
+          <% }); %>
+        </tr>
+      </thead>
+      <tbody>
+          <% for (let i = 0; i < rankedResults.length; i++) { %>
+            <tr>
+                <td class="border border-gray-300 dark:border-gray-700"><%= i + 1 %></td>
+                <td class="border border-gray-300 dark:border-gray-700"><%= rankedResults[i].name + ':\n' + rankedResults[i].description %></td>
+                <td class="border border-gray-300 dark:border-gray-700"><%= rankedResults[i].score.toPrecision(SCORE_PRECISION) %></td>
+                <% for (const value of Object.values(rankedResults[i].scores)) { %>
+                  <td class="border border-gray-300 dark:border-gray-700"><%= value + "/10" %></td>
+                <% } %>
+            </tr>
+          <% } %>
+      </tbody>
+    </table>
       <a href="/tool" class="inline-block mt-6 text-blue-700 font-semibold hover:underline">
         ← Back to Tool
       </a>

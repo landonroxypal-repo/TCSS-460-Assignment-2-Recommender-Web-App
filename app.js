@@ -18,6 +18,7 @@ const path = require("path");
 
 // at least 5 criteria, and at least 5 alternatives.
 const decisionData = require("./data/decision-data.json");
+const { normalizeWeights, weightGames } = require("./src/scoring");
 
 const app = express();
 const PORT = 4000;
@@ -57,12 +58,18 @@ app.get("/tool", function (req, res) {
 
 // Results route
 app.post("/tool/results", function (req, res) {
-  // TODO: Read submitted weights from req.body.
-  // TODO: Normalize the weights.
-  // TODO: Check which method was selected: weighted-sum or weighted-product.
-  // TODO: Calculate a score for each alternative.
-  // TODO: Sort alternatives from highest score to lowest score.
   // TODO: Render the results page with the ranked alternatives.
+
+  const weights = {};
+
+  for (const [key, value] of Object.entries(req.body)) {
+      if (key !== "method") {
+        weights[key] = value;
+      }
+  }
+
+  const normalizedWeights = normalizeWeights(weights);
+  const rankedResults = weightGames(decisionData.alternatives, normalizedWeights, req.body.method);
 
   res.render("results", {
     title: "Results",
@@ -70,9 +77,8 @@ app.post("/tool/results", function (req, res) {
     data: decisionData,
     formData: req.body,
     selectedMethod: req.body.method,
-    normalizedWeights: [],
-    rankedResults: [],
-    message: "TODO: Implement backend ranking logic for Weighted Sum and Weighted Product."
+    normalizedWeights: normalizedWeights,
+    rankedResults: rankedResults,
   });
 });
 

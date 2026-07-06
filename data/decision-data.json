@@ -1,5 +1,5 @@
 {
-  "appName": "Sample Recommender App",
+  "appName": "Video Game Recommender",
   "topic": "Video Games",
   "description": "A quick web app to recommend video games based off of Replayability & Value, Story and Narrative, Gameplay Mechanics & Design, Presentation & Art Direction, and Technical Stability & Performance.",
   "criteria": [
@@ -10,7 +10,7 @@
     },
     {
       "id": "story",
-      "name": "Story and Narrative",
+      "name": "Story & Narrative",
       "description": "Is the game's story compelling? If any characters present how deep is their development? How is the game's pacing?"
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": 2,
       "name": "ULTRAKILL",
-      "description": "ULTRAKILL is a fast-paced ultra-violent retro FPS that combines the skill-based style scoring of character action games with the unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weaponry and shower in their blood to regain your health.",
+      "description": "A fast-paced ultra-violent retro FPS that combines the skill-based style scoring of character action games with the unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weaponry and shower in their blood to regain your health.",
       "scores": {
         "cost": 5,
         "story": 3,
@@ -69,7 +69,7 @@
     {
       "id": 4,
       "name": "Portal 2",
-      "description": "Portal 2 introduces a cast of dynamic new characters, a host of fresh puzzle elements, and a much larger set of devious test chambers. Players will explore never-before-seen areas of the Aperture Science Labs and be reunited with GLaDOS, the occasionally murderous computer companion who guided them through the original game.",
+      "description": "Introduces a cast of dynamic new characters, a host of fresh puzzle elements, and a much larger set of devious test chambers. Players will explore never-before-seen areas of the Aperture Science Labs and be reunited with GLaDOS, the occasionally murderous computer companion who guided them through the original game.",
       "scores": {
         "cost": 7,
         "story": 10,
@@ -87,6 +87,18 @@
         "story": 1,
         "gameplay": 5,
         "art": 3,
+        "technical": 8
+      }
+    },
+    {
+      "id": 6,
+      "name": "Minecraft",
+      "description": "A game made up of blocks, creatures, and community. You can survive the night or build a work of art – the choice is all yours. But if the thought of exploring a vast new world all on your own feels overwhelming, then fear not! Let’s explore what Minecraft is all about!",
+      "scores": {
+        "cost": 8,
+        "story": 1,
+        "gameplay": 10,
+        "art": 5,
         "technical": 8
       }
     }

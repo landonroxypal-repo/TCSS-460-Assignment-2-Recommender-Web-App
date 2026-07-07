@@ -41,11 +41,21 @@ app.get("/", function (req, res) {
 
 // About / information page
 app.get("/about", function (req, res) {
+  // Illustrative example: weights and two alternatives chosen so that
+  // weighted-sum and weighted-product disagree on which one ranks higher.
+  const exampleWeights = { cost: 1, story: 4, gameplay: 1, art: 4, technical: 4 };
+  const exampleGames = decisionData.alternatives.filter(function (game) {
+    return game.name === "Don't Starve Together" || game.name === "Portal 2";
+  });
+
   res.render("about", {
     title: "About",
     activePage: "about",
     data: decisionData,
-    appName: decisionData.appName
+    appName: decisionData.appName,
+    exampleNormalizedWeights: normalizeWeights(exampleWeights),
+    exampleSumResults: weightGames(exampleGames, exampleWeights, "weighted-sum"),
+    exampleProductResults: weightGames(exampleGames, exampleWeights, "weighted-product")
   });
 });
 

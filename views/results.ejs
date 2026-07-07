@@ -3,11 +3,11 @@
 <% const SCORE_PRECISION = 3; %>
 <%- include("partials/header") %>
 
-<body class="min-h-screen bg-stone-900 text-stone-100">
+<body class="min-h-screen bg-slate-950 text-slate-100">
   <%- include("partials/nav") %>
 
   <main class="max-w-5xl mx-auto px-6 py-10">
-    <section class="rounded-xl shadow border p-8 mb-4 bg-stone-800 border-stone-700">
+    <section class="rounded-xl shadow border p-8 mb-4 bg-slate-900 border-slate-700">
         <p class="mb-4">
             Top Recommendation
         </p>
@@ -21,28 +21,28 @@
             Score using <strong><%= selectedMethod %></strong>: <%= rankedResults[0].score.toPrecision(SCORE_PRECISION) %>
         </p>
     </section>
-    <section class="rounded-xl shadow border p-8 my-4 bg-stone-800 border-stone-700">
+    <section class="rounded-xl shadow border p-8 my-4 bg-slate-900 border-slate-700">
      <h1 class="text-3xl font-bold mb-4">
          Your Weights
      </h1>
-      <div class="grid gap-4 md:grid-cols-2">
+          <div class="grid gap-4 md:grid-cols-2">
         <% data.criteria.forEach(function(criterion) { %>
-          <div class="border rounded-lg p-4 border-stone-600">
+          <div class="border rounded-lg p-4 border-slate-600">
             <label for="<%= criterion.id %>" class="block font-semibold mb-1">
               <%= criterion.name %>: <strong><%= formData[criterion.id] %>/10</strong>
             </label>
 
-            <p class="text-sm mb-2 text-stone-400">
+            <p class="text-sm mb-2 text-slate-400">
               <%= criterion.description %>
             </p>
           </div>
         <% }); %>
       </div>
     </section>
-    <section class="rounded-xl shadow border p-8 bg-stone-800 border-stone-700">
+    <section class="rounded-xl shadow border p-8 bg-slate-900 border-slate-700">
       <h1 class="text-3xl font-bold mb-4">Ranked Results</h1>
 
-      <p class="mb-4 text-stone-300">
+      <p class="mb-4 text-slate-300">
         Each game is ranked based on its score; from highest to lowest.
       </p>
 

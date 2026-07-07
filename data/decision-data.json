@@ -40,7 +40,8 @@
         "gameplay": 6,
         "art": 6,
         "technical": 9
-      }
+      },
+      "image": "/images/turing.jpg"
     },
     {
       "id": 2,
@@ -52,7 +53,8 @@
         "gameplay": 10,
         "art": 8,
         "technical": 8
-      }
+      },
+      "image": "/images/ukbanner.jpg"
     },
     {
       "id": 3,
@@ -64,7 +66,8 @@
         "gameplay": 7,
         "art": 10,
         "technical": 9
-      }
+      },
+      "image": "/images/dstbanner.jpg"
     },
     {
       "id": 4,
@@ -76,7 +79,8 @@
         "gameplay": 8,
         "art": 7,
         "technical": 7
-      }
+      },
+      "image": "/images/portal2banner.jpg"
     },
     {
       "id": 5,
@@ -88,7 +92,8 @@
         "gameplay": 5,
         "art": 3,
         "technical": 8
-      }
+      },
+      "image": "/images/tablebanner.jpg"
     },
     {
       "id": 6,
@@ -100,7 +105,21 @@
         "gameplay": 10,
         "art": 5,
         "technical": 8
-      }
+      },
+      "image": "/images/mcbanner.png"
+    },
+    {
+      "id": 7,
+      "name": "StarCraft",
+      "description": "StarCraft introduced many revolutionary new features that have since become staples of the real-time strategy genre: asymmetric factions, meticulous balance, and a strong emphasis on deep strategy and high accessibility.",
+      "scores": {
+        "cost": 10,
+        "story": 5,
+        "gameplay": 8,
+        "art": 8,
+        "technical": 10
+      },
+      "image": "/images/scbanner.webp"
     }
   ]
 }

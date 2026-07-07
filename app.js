@@ -34,6 +34,7 @@ app.get("/", function (req, res) {
   res.render("index", {
     title: "Home",
     activePage: "home",
+    data: decisionData,
     appName: decisionData.appName
   });
 });

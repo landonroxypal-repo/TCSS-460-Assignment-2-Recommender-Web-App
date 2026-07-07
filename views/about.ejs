@@ -2,22 +2,49 @@
 <html lang="en">
 <%- include("partials/header") %>
 
-<body class="min-h-screen bg-stone-900 text-stone-100">
+<body class="min-h-screen bg-slate-950 text-slate-100">
   <%- include("partials/nav") %>
 
   <main class="max-w-5xl mx-auto px-6 py-10">
-    <section class="rounded-xl shadow border p-8 bg-stone-800 border-stone-700">
-      <h1 class="text-3xl font-bold mb-4">About This Recommender</h1>
+    <section class="rounded-xl p-8 border-slate-700">
+      <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">How PixelPicks Works</p>
+      <h1 class="text-3xl font-bold mb-4">About PixelPicks</h1>
 
-      <p class="leading-relaxed mb-4 text-stone-300">
-        TODO: Explain your recommender topic and what alternatives users are comparing.
+      <p class="leading-relaxed mb-4 text-slate-300">
+        Right now everybody is bored, stressed, and presented with endless choices of games to play.
+        Choosing the right game to spend hours of your time on can be a complex endeavor, and has many
+        factors involved such as the cost, story, gameplay, art, and technical design.
+
+        <br><br>PixelPicks uses a decision matrix with several criteria from 1 (worst) to
+        10 (best) to find the game best for your next playthrough. Higher values correlate
+        to a higher performance.
       </p>
 
-      <p class="leading-relaxed mb-4 text-stone-300">
-        TODO: Explain what criteria and weights mean in your app.
-      </p>
+     <hr class="my-6 border-1 border-slate-700">
 
-      <p class="leading-relaxed text-stone-300">
+     <h1 class="text-3xl font-bold mb-4">Decision Criteria</h1>
+
+     <p class="leading-relaxed mb-4 text-slate-300">
+         The criteria by which PixelPicks judges games.
+     </p>
+
+     <div class="grid gap-4 md:grid-cols-2 mt-5">
+      <% data.criteria.forEach(function(criterion) { %>
+        <div class="border rounded-lg p-4 border-slate-600 bg-slate-900">
+          <label for="<%= criterion.id %>" class="block font-semibold mb-1">
+            <%= criterion.name %>
+          </label>
+
+          <p class="text-sm mb-2 text-slate-400">
+            <%= criterion.description %>
+          </p>
+        </div>
+      <% }); %>
+    </div>
+
+     <hr class="my-6 border-1 border-slate-700">
+
+      <p class="leading-relaxed text-slate-300">
         This app should support two backend ranking methods: Weighted Sum and Weighted Product.
       </p>
     </section>

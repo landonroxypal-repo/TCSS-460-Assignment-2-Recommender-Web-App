@@ -8,24 +8,24 @@
 
   <main class="max-w-5xl mx-auto px-6 py-10">
     <section class="rounded-xl shadow border p-8 mb-4 bg-slate-900 border-slate-700">
-        <p class="mb-4">
-            Top Recommendation
-        </p>
-        <h1 class="text-3xl font-bold mb-4">
-            <%= rankedResults[0].name %>
-        </h1>
-        <p class="mb-4">
-            <%= rankedResults[0].description %>
-        </p>
-        <p class="mb-4">
-            Score using <strong><%= selectedMethod %></strong>: <%= rankedResults[0].score.toPrecision(SCORE_PRECISION) %>
-        </p>
+      <p class="mb-4">
+        Top Recommendation
+      </p>
+      <h1 class="text-3xl font-bold mb-4">
+        <%= rankedResults[0].name %>
+      </h1>
+      <p class="mb-4">
+        <%= rankedResults[0].description %>
+      </p>
+      <p class="mb-4">
+        Score using <strong><%= selectedMethod %></strong>: <%= rankedResults[0].score.toPrecision(SCORE_PRECISION) %>
+      </p>
     </section>
     <section class="rounded-xl shadow border p-8 my-4 bg-slate-900 border-slate-700">
-     <h1 class="text-3xl font-bold mb-4">
-         Your Weights
-     </h1>
-          <div class="grid gap-4 md:grid-cols-2">
+      <h1 class="text-3xl font-bold mb-4">
+        Your Weights
+      </h1>
+      <div class="grid gap-4 md:grid-cols-2">
         <% data.criteria.forEach(function(criterion) { %>
           <div class="border rounded-lg p-4 border-slate-600">
             <label for="<%= criterion.id %>" class="block font-semibold mb-1">
@@ -55,31 +55,31 @@
         5. short explanation of the result
       -->
 
-    <table class="border-separate border-spacing-2 border border-gray-500 table-auto">
-      <thead>
-        <tr>
-          <th class="border border-gray-600">Rank</th>
-          <th class="border border-gray-600">Choice</th>
-          <th class="border border-gray-600">Score</th>
+      <table class="border-separate border-spacing-2 border border-gray-500 table-auto">
+        <thead>
+          <tr>
+            <th class="border border-gray-600">Rank</th>
+            <th class="border border-gray-600">Choice</th>
+            <th class="border border-gray-600">Score</th>
 
-          <% data.criteria.forEach(function(criterion) { %>
-            <th class="border border-gray-600"><%= criterion.name %></th>
-          <% }); %>
-        </tr>
-      </thead>
-      <tbody>
+            <% data.criteria.forEach(function(criterion) { %>
+              <th class="border border-gray-600"><%= criterion.name %></th>
+            <% }); %>
+          </tr>
+        </thead>
+        <tbody>
           <% for (let i = 0; i < rankedResults.length; i++) { %>
             <tr>
-                <td class="border border-gray-700"><%= i + 1 %></td>
-                <td class="border border-gray-700"><%= rankedResults[i].name + ':\n' + rankedResults[i].description %></td>
-                <td class="border border-gray-700"><%= rankedResults[i].score.toPrecision(SCORE_PRECISION) %></td>
-                <% for (const value of Object.values(rankedResults[i].scores)) { %>
-                  <td class="border border-gray-700"><%= value + "/10" %></td>
-                <% } %>
+              <td class="border border-gray-700"><%= i + 1 %></td>
+              <td class="border border-gray-700"><%= rankedResults[i].name + ':\n' + rankedResults[i].description %></td>
+              <td class="border border-gray-700"><%= rankedResults[i].score.toPrecision(SCORE_PRECISION) %></td>
+              <% for (const value of Object.values(rankedResults[i].scores)) { %>
+                <td class="border border-gray-700"><%= value + "/10" %></td>
+              <% } %>
             </tr>
           <% } %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
       <a href="/tool" class="inline-block mt-6 font-semibold hover:underline text-green-400">
         ← Back to Tool
       </a>

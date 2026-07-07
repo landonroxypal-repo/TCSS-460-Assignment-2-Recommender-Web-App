@@ -8,32 +8,32 @@
   <main class="max-w-5xl mx-auto">
     <section class="rounded-xl p-8 flex flex-col-reverse lg:flex-row items-center">
       <div>
-          <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Backend Recommender Web App</p>
+        <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Backend Recommender Web App</p>
 
-          <h1 class="text-3xl font-bold mb-4">
-            Bored? Find a new game to de-stress.
-          </h1>
+        <h1 class="text-3xl font-bold mb-4">
+          Bored? Find a new game to de-stress.
+        </h1>
 
-          <p class="leading-relaxed mb-6 text-slate-300">
-            PixelPicks helps to alleviate boredom and stress by precisely determining your next gaming experience.
-            PixelPicks uses a decision matrix stored in JSON where you get to assign five criteria you prefer
-            in your games. Then, the Express backend calculates your recommendations.
-          </p>
+        <p class="leading-relaxed mb-6 text-slate-300">
+          PixelPicks helps to alleviate boredom and stress by precisely determining your next gaming experience.
+          PixelPicks uses a decision matrix stored in JSON where you get to assign five criteria you prefer
+          in your games. Then, the Express backend calculates your recommendations.
+        </p>
 
-          <div class = "flex flex-row gap-4">
-            <a href="/tool" class="inline-block text-white font-semibold px-5 py-3 rounded-lg bg-green-600 hover:bg-green-700">
-              Try PixelPicks!
-            </a>
-            <a href="/about" class="inline-block text-white font-semibold px-5 py-3 rounded-lg hover:bg-slate-800 border border-3">
-              How does it work?
-            </a>
-          </div>
+        <div class = "flex flex-row gap-4">
+          <a href="/tool" class="inline-block text-white font-semibold px-5 py-3 rounded-lg bg-green-600 hover:bg-green-700">
+            Try PixelPicks!
+          </a>
+          <a href="/about" class="inline-block text-white font-semibold px-5 py-3 rounded-lg hover:bg-slate-800 border border-3">
+            How does it work?
+          </a>
+        </div>
       </div>
 
       <div class="m-6 flex flex-col justify-center items-center max-w-md rounded-full">
         <img src="images/controller.jpg" alt="My profile picture." class="rounded-full p-5 border border-green-400">
         <a href="https://www.magnific.com/free-vector/hand-drawn-game-controller_840983.htm" class="my-3 text-sm text-slate-400">
-            Image by rocketpixel on Magnific
+          Image by rocketpixel on Magnific
         </a>
       </div>
     </section>
@@ -41,28 +41,28 @@
     <hr class="my-6 border-1 border-slate-700">
 
     <section class="rounded-xl p-8 mb-4">
-        <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Many Options</p>
+      <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Many Options</p>
 
-        <h1 class="text-3xl font-bold mb-4">
-            Game Choices
-        </h1>
-        <p class="my-4">
-            PixelPicks will choose one of the below games for you based off your preferences.
-            All games are stored in a JSON file.
-        </p>
-        <div class="grid gap-4 md:grid-cols-2">
-            <% data.alternatives.forEach(function(game) { %>
-                <div class="hover:bg-[url('<%= game.image %>')] bg-cover rounded-lg
-                    shadow-lg shadow border hover:scale-105 transition transition-time-200
-                    text-3xl font-bold p-4 text-center [text-shadow:_2px_2px_0px_rgba(0,0,0,1)]">
-                    <%= game.name %>
-                </div>
-            <% }); %>
-            <a href="/tool" class="inline-block text-white font-semibold px-5 py-5 rounded-lg
-            bg-green-600 hover:bg-green-700 text-center text-xl">
-              Try PixelPicks →
-            </a>
-        </div>
+      <h1 class="text-3xl font-bold mb-4">
+        Game Choices
+      </h1>
+      <p class="my-4">
+        PixelPicks will choose one of the below games for you based off your preferences.
+        All games are stored in a JSON file.
+      </p>
+      <div class="grid gap-4 md:grid-cols-2">
+        <% data.alternatives.forEach(function(game) { %>
+          <div class="hover:bg-[url('<%= game.image %>')] bg-cover rounded-lg
+          shadow-lg shadow border hover:scale-105 transition transition-time-200
+          text-3xl font-bold p-4 text-center [text-shadow:_2px_2px_0px_rgba(0,0,0,1)]">
+            <%= game.name %>
+          </div>
+        <% }); %>
+        <a href="/tool" class="inline-block text-white font-semibold px-5 py-5 rounded-lg
+        bg-green-600 hover:bg-green-700 text-center text-xl">
+          Try PixelPicks →
+        </a>
+      </div>
     </section>
   </main>
 

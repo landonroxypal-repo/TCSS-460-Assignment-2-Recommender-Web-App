@@ -7,82 +7,137 @@
 
   <main class="max-w-5xl mx-auto px-6 py-10">
     <section class="rounded-xl p-8 border-slate-700">
-        <div class="flex flex-col-reverse lg:flex-row items-center">
+      <div class="flex flex-col-reverse lg:flex-row items-center">
         <div>
-              <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">How PixelPicks Works</p>
-              <h1 class="text-3xl font-bold mb-4">About PixelPicks</h1>
+          <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">How PixelPicks Works</p>
+          <h1 class="text-3xl font-bold mb-4">About PixelPicks</h1>
 
-              <p class="leading-relaxed mb-4 text-slate-300">
-                Right now everybody is bored, stressed, and presented with endless choices of games to play.
-                Choosing the right game to spend hours of your time on can be a complex endeavor, and has many
-                factors involved such as the cost, story, gameplay, art, and technical design.
+          <p class="leading-relaxed mb-4 text-slate-300">
+            Right now everybody is bored, stressed, and presented with endless choices of games to play.
+            Choosing the right game to spend hours of your time on can be a complex endeavor, and has many
+            factors involved such as the cost, story, gameplay, art, and technical design.
 
-                <br><br>PixelPicks uses a decision matrix with several criteria from 1 (worst) to
-                10 (best) to find the game best for your next playthrough. Higher values correlate
-                to a higher performance.
-              </p>
+            <br><br>PixelPicks uses a decision matrix with several criteria from 1 (worst) to
+            10 (best) to find the game best for your next playthrough. Higher values correlate
+            to a higher performance.
+          </p>
         </div>
 
         <div class="m-2 flex flex-col justify-center items-center max-w-sm rounded-full">
           <img src="images/questionmark.jpg" alt="My profile picture." class="rounded-full p-5 border border-green-400">
         </div>
-    </div>
+      </div>
 
-     <hr class="my-6 border-1 border-slate-700">
+      <hr class="my-6 border-1 border-slate-700">
 
-    <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Criteria</p>
-     <h1 class="text-3xl font-bold mb-4">Decision Criteria</h1>
+      <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Criteria</p>
+      <h1 class="text-3xl font-bold mb-4">Decision Criteria</h1>
 
-     <p class="leading-relaxed mb-4 text-slate-300">
-         The criteria by which PixelPicks judges games.
-     </p>
+      <p class="leading-relaxed mb-4 text-slate-300">
+        The criteria by which PixelPicks judges games.
+      </p>
 
-     <div class="grid gap-4 md:grid-cols-2 mt-5">
-      <% data.criteria.forEach(function(criterion) { %>
-        <div class="border rounded-lg p-4 border-slate-600 bg-slate-900 transition
-        transition-time-200 hover:scale-105 hover:bg-slate-800">
-          <label for="<%= criterion.id %>" class="block font-semibold mb-1 text-xl">
-            <%= criterion.name %>
-          </label>
+      <div class="grid gap-4 md:grid-cols-2 mt-5">
+        <% data.criteria.forEach(function(criterion) { %>
+          <div class="border rounded-lg p-4 border-slate-600 bg-slate-900 transition
+          transition-time-200 hover:scale-105 hover:bg-slate-800">
+            <label for="<%= criterion.id %>" class="block font-semibold mb-1 text-xl">
+              <%= criterion.name %>
+            </label>
 
+            <p class="text-sm mb-2 text-slate-400">
+              <%= criterion.description %>
+            </p>
+          </div>
+        <% }); %>
+      </div>
+
+      <hr class="my-6 border-1 border-slate-700">
+
+      <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Methods</p>
+      <h1 class="text-3xl font-bold mb-4">Weighting Methods</h1>
+
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900 transition transition-time-200 hover:scale-105 hover:bg-slate-800">
+          <p class="text-xl font-bold mb-2">Weighted Sum<p>
           <p class="text-sm mb-2 text-slate-400">
-            <%= criterion.description %>
+            Weighted sum multiplies each criteria by a normalized weight, then sums them all together.
+          </p>
+          <code class="text-sm bg-slate-600 rounded shadow">
+            score = (score1 x weight1) + ... + (scoreN x weightN)
+          </code>
+          <p class="text-sm mb-2 text-slate-400 mt-2">
+            Simplest method, takes a weighted average across all criteria.
           </p>
         </div>
-      <% }); %>
-    </div>
-
-     <hr class="my-6 border-1 border-slate-700">
-
-     <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Methods</p>
-     <h1 class="text-3xl font-bold mb-4">Weighting Methods</h1>
-
-     <div class="flex flex-col md:flex-row gap-4">
         <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900 transition transition-time-200 hover:scale-105 hover:bg-slate-800">
-            <p class="text-xl font-bold mb-2">Weighted Sum<p>
-            <p class="text-sm mb-2 text-slate-400">
-                Weighted sum multiplies each criteria by a normalized weight, then sums them all together.
-            </p>
-            <code class="text-sm bg-slate-600 rounded shadow">
-                score = (score1 x weight1) + ... + (scoreN x weightN)
-            </code>
-            <p class="text-sm mb-2 text-slate-400 mt-2">
-                Simplest method, takes a weighted average across all criteria.
-            </p>
+          <p class="text-xl font-bold mb-2">Weighted Product<p>
+          <p class="text-sm mb-2 text-slate-400">
+            Weighted product multiplies all the criteria together exponentiated to their weight.
+          </p>
+          <code class="text-sm bg-slate-600 rounded shadow">
+            score = score1^weight1 x ... x scoreN^weightN
+          </code>
+          <p class="text-sm mb-2 text-slate-400 mt-2">
+            Rewards games that are higher across multiple categories.
+          </p>
         </div>
-        <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900 transition transition-time-200 hover:scale-105 hover:bg-slate-800">
-            <p class="text-xl font-bold mb-2">Weighted Product<p>
-            <p class="text-sm mb-2 text-slate-400">
-                Weighted product multiplies all the criteria together exponentiated to their weight.
-            </p>
-            <code class="text-sm bg-slate-600 rounded shadow">
-                score = score1^weight1 x ... x scoreN^weightN
-            </code>
-            <p class="text-sm mb-2 text-slate-400 mt-2">
-                Rewards games that are higher across multiple categories.
-            </p>
+      </div>
+
+      <hr class="my-6 border-1 border-slate-700">
+
+      <% const storyCriterionName = data.criteria.find(function (c) { return c.id === "story"; }).name; %>
+
+      <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Example</p>
+      <h1 class="text-3xl font-bold mb-4">When the Method Changes the Winner</h1>
+
+      <p class="leading-relaxed mb-4 text-slate-300">
+        The two methods don't always agree on a winner. Below, the same two games are weighted with the
+        same weights: <% data.criteria.forEach(function(criterion, i) { %><%= i > 0 ? ", " : "" %><%= criterion.name %>
+        and <%= (exampleNormalizedWeights[criterion.id] * 100).toFixed(1) %>%<% }); %>.
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2 mt-5">
+        <% exampleSumResults.forEach(function(game) { %>
+          <div class="border rounded-lg p-4 border-slate-600 bg-slate-900">
+            <p class="font-semibold text-lg mb-2"><%= game.name %></p>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-slate-400">
+              <% data.criteria.forEach(function(criterion) { %>
+                <p><%= criterion.name %>: <span class="text-slate-200"><%= game.scores[criterion.id] %>/10</span></p>
+              <% }); %>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-4 mt-5">
+        <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900">
+          <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Weighted Sum Winner</p>
+          <p class="text-2xl font-bold mb-2"><%= exampleSumResults[0].name %></p>
+          <p class="text-sm text-slate-400">
+            <%= exampleSumResults[0].name %> scores <strong><%= exampleSumResults[0].score.toPrecision(3) %></strong>,
+            beating <%= exampleSumResults[1].name %> at <strong><%= exampleSumResults[1].score.toPrecision(3) %></strong>.
+          </p>
         </div>
-     </div>
+        <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900">
+          <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Weighted Product Winner</p>
+          <p class="text-2xl font-bold mb-2"><%= exampleProductResults[0].name %></p>
+          <p class="text-sm text-slate-400">
+            <%= exampleProductResults[0].name %> scores <strong><%= exampleProductResults[0].score.toPrecision(3) %></strong>,
+            beating <%= exampleProductResults[1].name %> at <strong><%= exampleProductResults[1].score.toPrecision(3) %></strong>.
+          </p>
+        </div>
+      </div>
+
+      <p class="leading-relaxed mb-4 text-slate-300 mt-5">
+        The winner flips because <%= exampleSumResults[0].name %> only has an average
+        <%= storyCriterionName %> score, but weighted sum just averages contributions, so being
+        strong everywhere else is enough to win. Weighted product instead raises every score to its
+        weight and multiplies them together, so a middling score in a heavily weighted criterion
+        drags the whole product down &mdash; while <%= exampleProductResults[0].name %>'s perfect
+        <%= storyCriterionName %> score shields it from that penalty, even though it is weaker in
+        other categories. Weighted sum rewards a strong average; weighted product punishes weak spots.
+      </p>
     </section>
   </main>
 

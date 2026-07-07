@@ -50,6 +50,10 @@
             </p>
           </div>
         <% }); %>
+        <a href="/tool" class="flex items-center justify-center text-white font-semibold p-4 rounded-lg
+        bg-green-600 hover:bg-green-700 text-center text-xl">
+          Try PixelPicks →
+        </a>
       </div>
 
       <hr class="my-6 border-1 border-slate-700">
@@ -93,8 +97,7 @@
 
       <p class="leading-relaxed mb-4 text-slate-300">
         The two methods don't always agree on a winner. Below, the same two games are weighted with the
-        same weights: <% data.criteria.forEach(function(criterion, i) { %><%= i > 0 ? ", " : "" %><%= criterion.name %>
-        and <%= (exampleNormalizedWeights[criterion.id] * 100).toFixed(1) %>%<% }); %>.
+        same weights.
       </p>
 
       <div class="grid gap-4 md:grid-cols-2 mt-5">
@@ -114,30 +117,29 @@
         <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900">
           <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Weighted Sum Winner</p>
           <p class="text-2xl font-bold mb-2"><%= exampleSumResults[0].name %></p>
-          <p class="text-sm text-slate-400">
-            <%= exampleSumResults[0].name %> scores <strong><%= exampleSumResults[0].score.toPrecision(3) %></strong>,
-            beating <%= exampleSumResults[1].name %> at <strong><%= exampleSumResults[1].score.toPrecision(3) %></strong>.
-          </p>
         </div>
         <div class="flex-1 border rounded-lg p-4 border-slate-600 bg-slate-900">
           <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Weighted Product Winner</p>
           <p class="text-2xl font-bold mb-2"><%= exampleProductResults[0].name %></p>
-          <p class="text-sm text-slate-400">
-            <%= exampleProductResults[0].name %> scores <strong><%= exampleProductResults[0].score.toPrecision(3) %></strong>,
-            beating <%= exampleProductResults[1].name %> at <strong><%= exampleProductResults[1].score.toPrecision(3) %></strong>.
-          </p>
         </div>
       </div>
 
       <p class="leading-relaxed mb-4 text-slate-300 mt-5">
         The winner flips because <%= exampleSumResults[0].name %> only has an average
-        <%= storyCriterionName %> score, but weighted sum just averages contributions, so being
+        <%= storyCriterionName %> score, and weighted sum just averages contributions. So, being
         strong everywhere else is enough to win. Weighted product instead raises every score to its
-        weight and multiplies them together, so a middling score in a heavily weighted criterion
-        drags the whole product down &mdash; while <%= exampleProductResults[0].name %>'s perfect
+        weight and multiplies them together, so while <%= exampleProductResults[0].name %>'s perfect
         <%= storyCriterionName %> score shields it from that penalty, even though it is weaker in
-        other categories. Weighted sum rewards a strong average; weighted product punishes weak spots.
+        other criteria. Weighted sum rewards high scores across all criteria, while weighted product
+        punishes weak scores in criteria.
       </p>
+
+      <div class="flex justify-center">
+        <a href="/tool" class="flex items-center justify-center text-white font-semibold p-4 rounded-lg
+            bg-green-600 hover:bg-green-700 text-center text-xl">
+          Try PixelPicks →
+        </a>
+      </div>
     </section>
   </main>
 

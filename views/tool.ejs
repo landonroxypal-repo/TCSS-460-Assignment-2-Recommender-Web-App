@@ -7,7 +7,11 @@
 
   <main class="max-w-5xl mx-auto px-6 py-10">
     <section class="rounded-xl shadow border p-8 bg-slate-900 border-slate-700">
-      <h1 class="text-3xl font-bold mb-3">Recommender Tool</h1>
+      <h1 class="text-3xl font-bold mb-3">PixelPicks Tool</h1>
+
+      <hr class="my-6 border-1 border-slate-700">
+
+      <h1 class="text-xl font-bold mb-3 text-green-400 uppercase">Step 1.)</h1>
 
       <p class="mb-6 text-slate-300">
         Enter your preference for the following aspects of games below.
@@ -18,7 +22,7 @@
       <form action="/tool/results" method="POST" class="space-y-6">
         <section class="grid gap-4 md:grid-cols-2">
           <% data.criteria.forEach(function(criterion) { %>
-            <div class="border rounded-lg p-4 border-slate-600">
+            <div class="border rounded-lg p-4 border-slate-600 bg-slate-800">
               <label for="<%= criterion.id %>" class="block font-semibold mb-1">
                 <%= criterion.name %>
               </label>
@@ -39,26 +43,42 @@
           <% }); %>
         </section>
 
+        <hr class="my-6 border-1 border-slate-700">
+
         <section>
-          <h2 class="font-bold mb-2">Ranking Method</h2>
+          <h1 class="text-xl font-bold mb-3 text-green-400 uppercase">Step 2.)</h1>
 
-          <label class="block mb-2">
-            <input type="radio" name="method" value="weighted-sum" checked>
-            Weighted Sum
-          </label>
+          <p class="mb-6 text-slate-300">
+            Choose a scoring method to rank all games by.
+          </p>
 
-          <label class="block">
-            <input type="radio" name="method" value="weighted-product">
-            Weighted Product
-          </label>
+          <div class="flex flex-row gap-4">
+            <label class="flex-1 block border rounded-lg p-4 border-slate-600 bg-slate-800 ">
+              <input type="radio" name="method" value="weighted-sum" checked>
+                Weighted Sum
+                <p class="text-slate-300">
+                  Rewards high criteria scores.
+                </p>
+            </label>
+
+            <label class="flex-1 block border rounded-lg p-4 border-slate-600 bg-slate-800">
+              <input type="radio" name="method" value="weighted-product">
+              Weighted Product
+                <p class="text-slate-300">
+                  Punishes low criteria scores.
+                </p>
+            </label>
+          </div>
         </section>
+
+        <hr class="my-6 border-1 border-slate-700">
 
         <div class="flex gap-3">
           <button type="submit" class="text-white font-semibold px-5 py-3 rounded-lg bg-green-600 hover:bg-green-700">
             Rank Games
           </button>
 
-          <button type="reset" class="border font-semibold px-5 py-3 rounded-lg border-slate-600 hover:bg-slate-800 text-white">
+          <button type="reset" class="border font-semibold px-5 py-3 rounded-lg border-white hover:bg-slate-800 text-white">
             Reset
           </button>
         </div>

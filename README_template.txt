@@ -1,8 +1,8 @@
-TCSS 460 - Assignment 2 Source Documentation
+TCSS 460 - Video Game Recommender Source Documentation
 
 Student Name:
 UW NetID:
-Assignment: Assignment 2
+Assignment: Video Game Recommender
 Selected Recommender Topic:
 
 How to Run:

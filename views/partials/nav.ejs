@@ -1,11 +1,11 @@
-<nav class="bg-white border-b border-slate-200">
+<nav class="bg-stone-800 border-b border-stone-700">
   <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="font-bold text-slate-900">Assignment 2</a>
+    <a href="/" class="font-bold text-white hover:text-green-400 transition transition-time-200"><%= appName %></a>
 
     <div class="flex gap-4 text-sm font-semibold">
-      <a href="/" class="<%= activePage === 'home' ? 'text-blue-700' : 'text-slate-600 hover:text-blue-700' %>">Home</a>
-      <a href="/about" class="<%= activePage === 'about' ? 'text-blue-700' : 'text-slate-600 hover:text-blue-700' %>">About</a>
-      <a href="/tool" class="<%= activePage === 'tool' ? 'text-blue-700' : 'text-slate-600 hover:text-blue-700' %>">Tool</a>
+      <a href="/" class="<%= (activePage === 'home' ? 'text-green-400' : 'text-stone-300 hover:text-green-400') + ' bg-stone-900 rounded-lg px-4 py-2' %>">Home</a>
+      <a href="/about" class="<%= (activePage === 'about' ? 'text-green-400' : 'text-stone-300 hover:text-green-400') + ' bg-stone-900 rounded-lg px-4 py-2' %>">About</a>
+      <a href="/tool" class="<%= (activePage === 'tool' ? 'text-green-400' : 'text-stone-300 hover:text-green-400') + ' bg-stone-900 rounded-lg px-4 py-2' %>">Try it!</a>
     </div>
   </div>
 </nav>

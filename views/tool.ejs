@@ -2,14 +2,14 @@
 <html lang="en">
 <%- include("partials/header") %>
 
-<body class="bg-slate-100 text-slate-900 min-h-screen">
+<body class="min-h-screen bg-stone-900 text-stone-100">
   <%- include("partials/nav") %>
 
   <main class="max-w-5xl mx-auto px-6 py-10">
-    <section class="bg-white rounded-xl shadow border border-slate-200 p-8">
+    <section class="rounded-xl shadow border p-8 bg-stone-800 border-stone-700">
       <h1 class="text-3xl font-bold mb-3">Recommender Tool</h1>
 
-      <p class="text-slate-700 mb-6">
+      <p class="mb-6 text-stone-300">
           Enter your preference for the following aspects of games below.
           For each category enter an integer from 0 to 10 where 0 is the
           lowest, and 10 is the highest.
@@ -18,12 +18,12 @@
       <form action="/tool/results" method="POST" class="space-y-6">
         <section class="grid gap-4 md:grid-cols-2">
           <% data.criteria.forEach(function(criterion) { %>
-            <div class="border border-slate-200 rounded-lg p-4">
+            <div class="border rounded-lg p-4 border-stone-600">
               <label for="<%= criterion.id %>" class="block font-semibold mb-1">
                 <%= criterion.name %>
               </label>
 
-              <p class="text-sm text-slate-600 mb-2">
+              <p class="text-sm mb-2 text-stone-400">
                 <%= criterion.description %>
               </p>
 
@@ -34,7 +34,7 @@
                 min="0"
                 max="10"
                 value="1"
-                class="w-full border border-slate-300 rounded-lg px-3 py-2">
+                class="w-full border rounded-lg px-3 py-2 bg-stone-700 border-stone-600 text-white">
             </div>
           <% }); %>
         </section>
@@ -54,11 +54,11 @@
         </section>
 
         <div class="flex gap-3">
-          <button type="submit" class="bg-blue-700 text-white font-semibold px-5 py-3 rounded-lg hover:bg-blue-800">
-            Rank Alternatives
+          <button type="submit" class="text-white font-semibold px-5 py-3 rounded-lg bg-green-600 hover:bg-green-700">
+            Rank Games
           </button>
 
-          <button type="reset" class="border border-slate-300 font-semibold px-5 py-3 rounded-lg hover:bg-slate-100">
+          <button type="reset" class="border font-semibold px-5 py-3 rounded-lg border-stone-600 hover:bg-stone-700 text-white">
             Reset
           </button>
         </div>

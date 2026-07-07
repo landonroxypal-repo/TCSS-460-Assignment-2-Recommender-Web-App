@@ -43,7 +43,8 @@ app.get("/about", function (req, res) {
   res.render("about", {
     title: "About",
     activePage: "about",
-    data: decisionData
+    data: decisionData,
+    appName: decisionData.appName
   });
 });
 
@@ -52,7 +53,8 @@ app.get("/tool", function (req, res) {
   res.render("tool", {
     title: "Recommender Tool",
     activePage: "tool",
-    data: decisionData
+    data: decisionData,
+    appName: decisionData.appName
   });
 });
 
@@ -79,6 +81,7 @@ app.post("/tool/results", function (req, res) {
     selectedMethod: req.body.method,
     normalizedWeights: normalizedWeights,
     rankedResults: rankedResults,
+    appName: decisionData.appName
   });
 });
 
@@ -86,7 +89,8 @@ app.post("/tool/results", function (req, res) {
 app.use(function (req, res) {
   res.status(404).render("404", {
     title: "Page Not Found",
-    activePage: ""
+    activePage: "",
+    appName: decisionData.appName
   });
 });
 

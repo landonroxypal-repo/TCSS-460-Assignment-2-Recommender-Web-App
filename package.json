@@ -1,7 +1,7 @@
 {
   "name": "assignment2-start",
   "version": "1.0.0",
-  "description": "Starter files for Assignment 2 recommender web app",
+  "description": "Project for a Video Game Recommender App",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js -e js,ejs,json"

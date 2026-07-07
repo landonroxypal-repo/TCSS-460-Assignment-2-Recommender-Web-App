@@ -2,24 +2,31 @@
 <html lang="en">
 <%- include("partials/header") %>
 
-<body class="bg-slate-100 text-slate-900 min-h-screen">
+<body class="min-h-screen bg-stone-900 text-stone-100">
   <%- include("partials/nav") %>
 
   <main class="max-w-5xl mx-auto px-6 py-10">
-    <section class="bg-white rounded-xl shadow border border-slate-200 p-8">
-      <p class="text-sm font-bold text-blue-700 uppercase tracking-wide mb-2">Assignment 2 Starter</p>
+    <section class="rounded-xl shadow border p-8 bg-stone-800 border-stone-700">
+      <p class="text-sm font-bold uppercase tracking-wide mb-2 text-green-400">Backend Recommender Web App</p>
 
       <h1 class="text-3xl font-bold mb-4">
-        <%= appName %>
+        Bored? Find a new game to de-stress.
       </h1>
 
-      <p class="text-slate-700 leading-relaxed mb-6">
-        TODO: Introduce your recommender web app. Explain what decision your app helps users make.
+      <p class="leading-relaxed mb-6 text-stone-300">
+        PixelPicks helps to alleviate boredom and stress by precisely determining your next gaming experience.
+        PixelPicks uses a decision matrix stored in JSON where you get to assign five criteria you prefer
+        in your games. Then, the Express backend calculates your recommendations.
       </p>
 
-      <a href="/tool" class="inline-block bg-blue-700 text-white font-semibold px-5 py-3 rounded-lg hover:bg-blue-800">
-        Open Recommender Tool
-      </a>
+      <div class = "flex flex-row gap-4">
+        <a href="/tool" class="inline-block text-white font-semibold px-5 py-3 rounded-lg bg-green-600 hover:bg-green-700">
+          Try PixelPicks!
+        </a>
+        <a href="/tool" class="inline-block text-white font-semibold px-5 py-3 rounded-lg hover:bg-stone-700 border border-3">
+          How does it work?
+        </a>
+      </div>
     </section>
   </main>
 

@@ -1,5 +1,5 @@
 {
-  "appName": "Video Game Recommender",
+  "appName": "PixelPicks",
   "topic": "Video Games",
   "description": "A quick web app to recommend video games based off of Replayability & Value, Story and Narrative, Gameplay Mechanics & Design, Presentation & Art Direction, and Technical Stability & Performance.",
   "criteria": [

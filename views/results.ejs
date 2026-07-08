@@ -7,44 +7,84 @@
   <%- include("partials/nav") %>
 
   <main class="max-w-5xl mx-auto px-6 py-10">
-    <section class="rounded-xl shadow border p-8 mb-4 bg-slate-900 border-slate-700">
-      <p class="mb-4">
-        Top Recommendation
-      </p>
-      <h1 class="text-3xl font-bold mb-4">
-        <%= rankedResults[0].name %>
-      </h1>
-      <p class="mb-4">
-        <%= rankedResults[0].description %>
-      </p>
-      <p class="mb-4">
-        Score using <strong><%= selectedMethod %></strong>: <%= rankedResults[0].score.toPrecision(SCORE_PRECISION) %>
-      </p>
+    <section class="rounded-xl border p-8 mb-4 border-white bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950">
+      <div class="flex flex-col justify-center items-center">
+          <div>
+            <h1 class="text-xl font-bold mb-3 text-green-400 uppercase">PixlePick's Recommendation is...</h1>
+            <h1 class="text-3xl font-bold mb-4">
+              <%= rankedResults[0].name %>
+            </h1>
+            <p class="mb-4">
+              <%= rankedResults[0].description %>
+            </p>
+
+            <hr class="my-6 border-1 border-slate-700">
+          </div>
+
+          <div class="m-3 flex flex-col justify-center items-center max-w-lg rounded-md transition transition-time-200 hover:scale-105">
+            <img src="<%= rankedResults[0].image %>" alt="<%= rankedResults[0].name + ' screenshot' %>." class="rounded-md p-5 border border-green-400">
+          </div>
+
+          <p class="mb-4 bg rounded-full p-4 border border-green-500">
+            Final Score using <strong><%= selectedMethod %></strong>: <%= rankedResults[0].score.toPrecision(SCORE_PRECISION) %>
+          </p>
+      </div>
     </section>
-    <section class="rounded-xl shadow border p-8 my-4 bg-slate-900 border-slate-700">
+
+    <hr class="my-6 border-1 border-slate-700">
+
+    <section class="rounded-xl p-8 my-4">
+      <h1 class="text-xl font-bold mb-3 text-green-400 uppercase">Weights</h1>
       <h1 class="text-3xl font-bold mb-4">
         Your Weights
       </h1>
       <div class="grid gap-4 md:grid-cols-2">
         <% data.criteria.forEach(function(criterion) { %>
-          <div class="border rounded-lg p-4 border-slate-600">
+          <div class="border rounded-lg p-4 border-slate-600 hover:border-white transition
+          transition-time-200 hover:scale-105 bg-slate-900 hover:bg-slate-800">
             <label for="<%= criterion.id %>" class="block font-semibold mb-1">
-              <%= criterion.name %>: <strong><%= formData[criterion.id] %>/10</strong>
+              <%= criterion.name %>
             </label>
 
             <p class="text-sm mb-2 text-slate-400">
               <%= criterion.description %>
             </p>
+
+            <hr class="my-6 border-1 border-slate-700">
+
+            <p class="mb-2 text-slate-400">
+                Normalized weight:
+                <strong class="text-green-400">
+                    <%= normalizedWeights[criterion.id].toPrecision(SCORE_PRECISION) %>
+                </strong>
+            </p>
+
+            <p class="mb-2 text-slate-400">
+                Raw weight:
+                <strong class="text-white">
+                    <%= formData[criterion.id] %>/10
+                </strong>
+            </p>
           </div>
         <% }); %>
       </div>
-    </section>
-    <section class="rounded-xl shadow border p-8 bg-slate-900 border-slate-700">
-      <h1 class="text-3xl font-bold mb-4">Ranked Results</h1>
 
-      <p class="mb-4 text-slate-300">
-        Each game is ranked based on its score; from highest to lowest.
-      </p>
+      <a href="/tool" class="inline-block mt-6 font-semibold hover:underline text-green-400">
+        ← Try new weights
+      </a>
+    </section>
+
+    <hr class="my-6 border-1 border-slate-700">
+
+    <section class="rounded-xl">
+     <div class="p-8">
+       <h1 class="text-xl font-bold mb-3 text-green-400 uppercase">Results</h1>
+       <h1 class="text-3xl font-bold mb-4">Full Ranked Results</h1>
+
+       <p class="mb-4 text-slate-300">
+         Each game is ranked based on its score; from highest to lowest.
+       </p>
+     </div>
 
       <!-- TODO:
         After implementing backend logic, display:
@@ -54,34 +94,39 @@
         4. normalized weights used
         5. short explanation of the result
       -->
+      <div class="h-96 overflow-auto rounded-xl border border-slate-700 max-h-md">
+        <table class="text-left border-collapse">
+          <thead class="sticky top-0 shadow-sm">
+            <tr class="bg-slate-600 divide-y divide-slate-700">
+              <th class="px-4 py-3 text-sm font-bold uppercase tracking-wide text-green-400 border-b border-slate-700">Rank</th>
+              <th class="px-4 py-3 text-sm font-bold uppercase tracking-wide text-green-400 border-b border-slate-700">Choice</th>
+              <th class="px-4 py-3 text-sm font-bold uppercase tracking-wide text-green-400 border-b border-slate-700">Score</th>
 
-      <table class="border-separate border-spacing-2 border border-gray-500 table-auto">
-        <thead>
-          <tr>
-            <th class="border border-gray-600">Rank</th>
-            <th class="border border-gray-600">Choice</th>
-            <th class="border border-gray-600">Score</th>
-
-            <% data.criteria.forEach(function(criterion) { %>
-              <th class="border border-gray-600"><%= criterion.name %></th>
-            <% }); %>
-          </tr>
-        </thead>
-        <tbody>
-          <% for (let i = 0; i < rankedResults.length; i++) { %>
-            <tr>
-              <td class="border border-gray-700"><%= i + 1 %></td>
-              <td class="border border-gray-700"><%= rankedResults[i].name + ':\n' + rankedResults[i].description %></td>
-              <td class="border border-gray-700"><%= rankedResults[i].score.toPrecision(SCORE_PRECISION) %></td>
-              <% for (const value of Object.values(rankedResults[i].scores)) { %>
-                <td class="border border-gray-700"><%= value + "/10" %></td>
-              <% } %>
+              <% data.criteria.forEach(function(criterion) { %>
+                <th class="px-4 py-3 text-sm font-bold uppercase tracking-wide text-green-400 border-b border-slate-700"><%= criterion.name %></th>
+              <% }); %>
             </tr>
-          <% } %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < rankedResults.length; i++) { %>
+              <tr class="<%= i === 0 ? 'bg-slate-900' : '' %> border-b border-slate-800 last:border-b-0 divide-y
+              divide-slate-800 hover:bg-slate-700 transition transition-time-200">
+                <td class="px-4 py-3 font-semibold <%= i === 0 ? 'text-green-400 text-semibold' : 'text-slate-300' %>"><%= i + 1 %></td>
+                <td class="px-4 py-3">
+                  <p class="font-semibold"><%= rankedResults[i].name %></p>
+                  <p class="text-sm text-slate-400"><%= rankedResults[i].description %></p>
+                </td>
+                <td class="px-4 py-3 <%= i === 0 ? 'text-green-400 text-semibold' : 'text-slate-300' %>"><%= rankedResults[i].score.toPrecision(SCORE_PRECISION) %></td>
+                <% for (const value of Object.values(rankedResults[i].scores)) { %>
+                  <td class="px-4 py-3 <%= i === 0 ? 'text-green-400 text-semibold' : 'text-slate-300' %>"><%= value %>/10</td>
+                <% } %>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
       <a href="/tool" class="inline-block mt-6 font-semibold hover:underline text-green-400">
-        ← Back to Tool
+        ← Try new weights
       </a>
     </section>
   </main>

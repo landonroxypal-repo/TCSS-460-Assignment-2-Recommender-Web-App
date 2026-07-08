@@ -33,7 +33,7 @@
     {
       "id": 1,
       "name": "Turing Complete",
-      "description": "Everything in a computer can be constructed from a basic component called a NAND gate. You will be challenged through a series of puzzles, to discover the path from NAND gates to arithmetic, memory and all the way to full CPU architectures. If you complete this game, you will have a deep understanding of how assembly, CPU instruction sets and basic components are related. And you will understand how programming concepts like if statements, loops and functions actually work in assembly and hardware.",
+      "description": "You will be challenged through a series of puzzles, to discover the path from NAND gates to arithmetic, memory and all the way to full CPU architectures. You will understand how programming concepts like if statements, loops and functions actually work in assembly and hardware.",
       "scores": {
         "cost": 7,
         "story": 2,
@@ -46,10 +46,10 @@
     {
       "id": 2,
       "name": "ULTRAKILL",
-      "description": "A fast-paced ultra-violent retro FPS that combines the skill-based style scoring of character action games with the unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weaponry and shower in their blood to regain your health.",
+      "description": "A fast-paced ultra-violent retro FPS that combines the skill-based style scoring of character action games with the unadulterated carnage inspired by the best shooters of the '90s.",
       "scores": {
         "cost": 5,
-        "story": 3,
+        "story": 7,
         "gameplay": 10,
         "art": 8,
         "technical": 8
@@ -61,7 +61,7 @@
       "name": "Don't Starve Together",
       "description": "Fight, Farm, Build and Explore Together in the standalone multiplayer expansion to the uncompromising wilderness survival game, Don't Starve.",
       "scores": {
-        "cost": 10,
+        "cost": 8,
         "story": 5,
         "gameplay": 7,
         "art": 10,
@@ -72,7 +72,7 @@
     {
       "id": 4,
       "name": "Portal 2",
-      "description": "Introduces a cast of dynamic new characters, a host of fresh puzzle elements, and a much larger set of devious test chambers. Players will explore never-before-seen areas of the Aperture Science Labs and be reunited with GLaDOS, the occasionally murderous computer companion who guided them through the original game.",
+      "description": "Players will explore never-before-seen areas of the Aperture Science Labs and be reunited with GLaDOS, the occasionally murderous computer companion who guided them through the original game.",
       "scores": {
         "cost": 7,
         "story": 10,
@@ -85,7 +85,7 @@
     {
       "id": 5,
       "name": "Tabletop Simulator",
-      "description": "Create your own original games, import custom assets, automate games with scripting, set up complete RPG dungeons, manipulate the physics, create hinges & joints, and of course flip the table when you are losing the game. All with an easy to use system integrated with Steam Workshop. You can do anything you want in Tabletop Simulator. The possibilities are endless!",
+      "description": "Create your own original games, import custom assets, automate games with scripting, set up complete RPG dungeons, manipulate the physics, create hinges & joints, and of course flip the table when you are losing the game. The possibilities are endless!",
       "scores": {
         "cost": 9,
         "story": 1,
@@ -104,7 +104,7 @@
         "story": 1,
         "gameplay": 10,
         "art": 5,
-        "technical": 8
+        "technical": 7
       },
       "image": "/images/mcbanner.png"
     },
@@ -116,7 +116,7 @@
         "cost": 10,
         "story": 5,
         "gameplay": 8,
-        "art": 8,
+        "art": 5,
         "technical": 10
       },
       "image": "/images/scbanner.webp"

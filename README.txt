@@ -12,18 +12,20 @@ How to Run:
 4. Open http://localhost:4000 in the browser.
 
 Criteria Used:
-1.
-2.
-3.
-4.
-5.
+1. Cost
+2. Story
+3. Gameplay
+4. Art
+5. Technical
 
 Alternatives Used:
-1.
-2.
-3.
-4.
-5.
+1. Turing Complete
+2. Ultrakill
+3. Don't Starve Together
+4. Portal 2
+5. Tabletop Simulator
+6. Minecraft
+7. StarCraft
 
 Ranking Methods Implemented:
 - Weighted Sum
@@ -43,7 +45,10 @@ Image Sources, if any:
 8. Starcraft Banner - https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/bltdf59c92278727837/62a3861079e67e7e69e8f9bb/SCR_BlackFriday_BlizzardShopHeaders_ShopBanner_1534x640.png?imwidth=960&imdensity=2.625
 
 AI Assistance Used, if any:
-Briefly describe how AI tools were used. If not used, write "None."
+AI tools were used in researching how to make a unit test suite for testing the ranking algorithm. AI also wrote some unit
+tests and I wrote others. Otherwise, AI was used when I got stuck and needed brief assistance, and to help with styling large
+amounts of content at a time such as converting the entire page to dark mode and increasing darkness values of all background
+elements. All other work is entirely self-written or sourced from the starter pack for the assignment.
 
 Notes:
-Any short notes needed for grading.
+N/A

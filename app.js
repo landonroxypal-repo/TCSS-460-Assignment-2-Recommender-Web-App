@@ -71,8 +71,6 @@ app.get("/tool", function (req, res) {
 
 // Results route
 app.post("/tool/results", function (req, res) {
-  // TODO: Render the results page with the ranked alternatives.
-
   const weights = {};
 
   for (const [key, value] of Object.entries(req.body)) {

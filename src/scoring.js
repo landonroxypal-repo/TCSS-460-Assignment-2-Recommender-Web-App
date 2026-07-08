@@ -19,9 +19,14 @@
  */
 function normalizeWeights(weights) {
     const total = Object.values(weights).reduce((sum, val) => sum + val, 0);
+
     const result = {};
 
     for (const [key, value] of Object.entries(weights)) {
+        if (typeof value === "string") {
+            throw new Error(`${key} is not a valid weight`);
+        }
+
         if (value > 0) {
             result[key] = value / total;
         } else {

@@ -75,7 +75,7 @@ app.post("/tool/results", function (req, res) {
 
   for (const [key, value] of Object.entries(req.body)) {
       if (key !== "method") {
-        weights[key] = value;
+        weights[key] = Number(value);
       }
   }
 

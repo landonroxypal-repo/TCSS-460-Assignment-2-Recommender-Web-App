@@ -48,7 +48,8 @@ AI Assistance Used, if any:
 AI tools were used in researching how to make a unit test suite for testing the ranking algorithm. AI also wrote some unit
 tests and I wrote others. Otherwise, AI was used when I got stuck and needed brief assistance, and to help with styling large
 amounts of content at a time such as converting the entire page to dark mode and increasing darkness values of all background
-elements. All other work is entirely self-written or sourced from the starter pack for the assignment.
+elements. All other work is entirely self-written or sourced from the starter pack for the assignment, and this does
+include the implementation of the weighting algorithm.
 
 Notes:
 N/A
